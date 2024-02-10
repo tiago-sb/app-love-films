@@ -1,0 +1,13 @@
+/* goodtime, nunito */
+:root { 
+    --corCinza: #475159;
+    --corPreto: #172426;
+    --corAmarelo: #F2A30F;
+    --corAmareloEscuro: #A65D05;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

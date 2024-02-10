@@ -1,5 +1,0 @@
-#475159 [cinza]
-#A3B2BF [cinza claro]
-#172426 [preto]
-#F2A30F [amarelo]
-#A65D05 [amarelo escuro]
