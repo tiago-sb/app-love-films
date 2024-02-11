@@ -13,6 +13,7 @@
     box-sizing: border-box;
     color: var(--corTexto);
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -71,6 +72,35 @@
 
 a {
     text-decoration: none;
+}
+/* #home, #search, #about, #contact */
+div#home,
+div#search,
+div#about, 
+div#contact {
+    width:100vw;
+    height: 100vh;
+    padding-top: 3.8rem;
+}
+
+div#contact {
+    background-color: red;
+}
+
+section.profile {
+    margin: 1rem auto;
+    width: 80vw;
+    height: 83vh;
+    background-color: aqua;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+section.profile .image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
 }
 
 @media screen and (min-width: 768px) {
