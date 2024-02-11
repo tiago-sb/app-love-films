@@ -1,8 +1,9 @@
-/* goodtime, nunito */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 :root { 
-    --corCinza: #475159;
-    --corPreto: #172426;
-    --corAmarelo: #F2A30F;
+    --corTexto: #fff;
+    --corMenuHeader: #252525;
+    --corRoxaPrincipal: rgb(208, 65, 211);
     --corAmareloEscuro: #A65D05;
 }
  
@@ -10,4 +11,63 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--corTexto);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    padding: 1rem;
+    background-color: var(--corMenuHeader);
+    font-size: 7pt;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.menu-hamburguer .line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--corTexto);
+    margin-top: 5px;
+}
+
+.header .navegacao {
+    display: none;
+    cursor: pointer;
+}
+
+.header .navegacao.navegacao-escolhida {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    transition: 1s ease-in-out;
+}
+
+@keyframes FadeIn {
+    from { opacity: 0; }
+    to{ opacity: 1; }
+}
+
+.header .navegacao.navegacao-escolhida li {
+    font-size: 20pt;
+    list-style-type: none;
+    text-align: center;
+    margin: 1rem;
+}
+
+.header .navegacao.navegacao-escolhida a {
+    transition: .5s;
+}
+
+.header .navegacao.navegacao-escolhida a:hover {
+    color: var(--corRoxaPrincipal);
+    text-shadow: 0px 0px 10px var(--corRoxaPrincipal); 
+}
+
+/* .navegacao.navegacao-escolhida .line {
+
+} */
+
+a {
+    text-decoration: none;
 }
