@@ -24,18 +24,32 @@ async function getUrlUser() {
 }
 
 function creatUser() {
-    document.querySelector("main.main").innerHTML = `
+    document.querySelector("div#contact").innerHTML = `
         <section class="profile">
             <div class="image">
                 <img class="image" src="${pessoa.photo}">
             </div>
 
-            <div class="conteudo">
+            <div class="conteudo"> 
                 <h2>${pessoa.namePes}</h2>
                 <p>${pessoa.location}</p>
                 <div class="bioUser"> 
                     "${pessoa.bioPes}"
                 </div>
+                <div class="linksContact"> 
+                <a href="https://criarmeulink.com.br/u/1690329618" target="_blank">
+                    <img src="assets/css/images/icons/email.svg" alt="email">
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5585987172112&text=treste" target="_blank">
+                    <img src="assets/css/images/icons/whatssApp.svg" alt="whatssApp">
+                </a>
+                <a href="https://www.instagram.com/tiagobella.05/" target="_blank">
+                    <img src="assets/css/images/icons/instagram.svg" alt="instagram">
+                </a>
+                <a href="https://twitter.com/wtftsb_" target="_blank">
+                    <img src="assets/css/images/icons/twitter-x.svg" alt="twitter-x">
+                </a>
+        </div>
             </div>
         </section>
     `

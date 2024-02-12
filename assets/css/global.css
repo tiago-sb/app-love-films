@@ -4,7 +4,9 @@
     --corTexto: #fff;
     --corMenuHeader: #252525;
     --corRoxaPrincipal: rgb(208, 65, 211);
+    --corRoxaSecundaria: rgb(213, 126, 214);
     --corAmareloEscuro: #A65D05;
+    --corTemp: #b9b3b3;
 }
  
 * {
@@ -17,6 +19,7 @@
 }
 
 .header {
+    top: 0;
     padding: 1rem;
     background-color: var(--corMenuHeader);
     font-size: 7pt;
@@ -73,7 +76,11 @@
 a {
     text-decoration: none;
 }
-/* #home, #search, #about, #contact */
+
+main.main {
+    padding-top: 3rem;
+}
+
 div#home,
 div#search,
 div#about, 
@@ -81,26 +88,56 @@ div#contact {
     width:100vw;
     height: 100vh;
     padding-top: 3.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div#contact {
-    background-color: red;
+    background-color: var(--corTemp);
 }
 
 section.profile {
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 80vw;
-    height: 83vh;
-    background-color: aqua;
+    /* height: 83vh; */
+    padding: 1rem;
+    background-color: var(--corTexto);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
 }
 
 section.profile .image {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
+}
+
+div.bioUser,
+div.conteudo p,
+div.conteudo h2 {
+    padding: .3rem;
+    color: var(--corMenuHeader);
+}
+
+div.bioUser {
+    background-color: var(--corRoxaSecundaria);
+    color: var(--corMenuHeader);
+    border-radius: 1rem;
+}
+
+div.linksContact {
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
 }
 
 @media screen and (min-width: 768px) {
