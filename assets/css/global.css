@@ -79,6 +79,7 @@ a {
 
 main.main {
     padding-top: 3rem;
+    overflow: hidden;
 }
 
 div#home,
@@ -91,16 +92,16 @@ div#contact {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--corTemp);
 }
 
-div#contact {
+div#about {
     background-color: var(--corTemp);
 }
 
 section.profile {
     margin: 0 auto;
     width: 80vw;
-    /* height: 83vh; */
     padding: 1rem;
     background-color: var(--corTexto);
     border-radius: 1rem;
@@ -127,7 +128,7 @@ div.conteudo h2 {
 div.bioUser {
     background-color: var(--corRoxaSecundaria);
     color: var(--corMenuHeader);
-    border-radius: 1rem;
+    border-radius: 1rem; 
 }
 
 div.linksContact {
@@ -138,6 +139,74 @@ div.linksContact {
     justify-content: center;
     align-items: center;
     transition: .5s;
+}
+
+form.form {
+    margin: 0 1rem;
+    padding: 1rem;
+    height: 85vh;
+    background-color: var(--corTexto);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+form.form .localizacao_user option,
+form.form label {
+    color: var(--corMenuHeader);
+}
+
+#textArea,
+form.form .localizacao_user select,
+form.form input {
+    padding: .3rem;
+    border-radius: .3rem;
+    border: 1px solid black;
+}
+
+form.form .area,
+form.form .numero_contato input,
+form.form .numero_contato,
+form.form .email_user input,
+form.form .email_user,
+form.form .nome_user input,
+form.form .nome_user {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+form.form .localizacao_user {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-bottom: .5rem;
+} 
+
+form.form .localizacao_user select,
+form.form .localizacao_user input {
+    width: 40%;
+    flex-grow: 1;
+    margin: .2rem;
+}
+
+form.form .localizacao_user input:nth-child(2) {
+    width: 100%;
+    flex-grow: 2;
+}
+
+#textArea {
+    width: 100%;
+}
+
+form.form button {
+    width: 100%;
+    padding: .5rem;
+    background-color: var(--corRoxaPrincipal);
+    border: none;
+    border-radius: .3rem;
+    margin-top: .5rem;
 }
 
 @media screen and (min-width: 768px) {

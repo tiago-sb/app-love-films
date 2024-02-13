@@ -19,7 +19,7 @@
             <div id="line1" class="line"></div> 
             <div id="line2" class="line"></div>
             <div id="line3" class="line"></div>
-        </div>
+        </div> 
 
         <nav class="navegacao" id="navegacao-Id"> 
             <ul>
@@ -37,11 +37,42 @@
         <div id="about">
         </div>
         <div id="contact">    
-            
+            <form class="form">
+                <div class="nome_user">
+                    <label for="primeiro_nome">Nome Completo*</label>
+                    <input type="text" name="primeiro_nome" id="primeiro_nome" placeholder="Primeiro nome" required>
+                    <input type="text" name="segundo_nome" id="segundo_nome" placeholder="Último nome">
+                </div>
+                <div class="email_user">
+                    <label for="email_user">E-mail*</label>
+                    <input type="email" name="email_user" id="email_user" placeholder="Insira o E-mail">
+                </div>        
+                <div class="localizacao_user">
+                    <label for="">Endereço</label>
+                    <input type="text" placeholder="Endereço">
+                    <input type="text" placeholder="Cidade">
+                    <input type="text" placeholder="Estado">
+                    <input type="number" placeholder="Número">
+                    <select name="paises" id="paises">
+                        <option value="">Selecione o Pais</option>
+                        <option value="Brasil">Brasil</option>
+                    </select>
+                </div>
+                <div class="numero_contato">
+                    <label for="numero_user">Número de Contato*</label>
+                    <input type="tel" name="numero_user" id="numero_user">
+                </div>
+                <div class="notas">
+                    <label for="textArea">Notas e Sugestões*</label>
+                    <textarea id="textArea" placeholder="Insira sua sugestão"></textarea>
+                </div>
+                <button type="button">Enviar</button>
+            </form>
         </div>
     </main>
     
     <script src="assets/js/githubApi.js"></script>
+    <script src="assets/js/ibgeApi.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

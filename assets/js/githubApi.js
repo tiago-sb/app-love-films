@@ -24,7 +24,7 @@ async function getUrlUser() {
 }
 
 function creatUser() {
-    document.querySelector("div#contact").innerHTML = `
+    document.querySelector("div#about").innerHTML = `
         <section class="profile">
             <div class="image">
                 <img class="image" src="${pessoa.photo}">
