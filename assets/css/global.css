@@ -144,15 +144,18 @@ div.linksContact {
 form.form {
     margin: 0 1rem;
     padding: 1rem;
-    height: 85vh;
     background-color: var(--corTexto);
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
     align-items: center;
     border-radius: .5rem;
+    color: var(--corMenuHeader);
 }
 
+div.localizacao_user select,
+div.localizacao_user input,
+div.localizacao_user label, 
 form.form .localizacao_user option,
 form.form label {
     color: var(--corMenuHeader);
@@ -166,6 +169,8 @@ form.form input {
     border: 1px solid black;
 }
 
+form.form div.notas,
+form.form .localizacao_user,
 form.form .area,
 form.form .numero_contato input,
 form.form .numero_contato,
@@ -175,20 +180,27 @@ form.form .nome_user input,
 form.form .nome_user {
     width: 100%;
     margin-bottom: .5rem;
+    color: var(--corMenuHeader);
 }
+
+
+label {
+    width: 100%;    
+    display: block;
+}   
 
 form.form .localizacao_user {
     display: flex;
-    flex-flow: row wrap;
-    width: 100%;
+    flex-flow: row wrap;;
     margin-bottom: .5rem;
+    color: var(--corMenuHeader);
 } 
 
 form.form .localizacao_user select,
 form.form .localizacao_user input {
-    width: 40%;
+    width: 48%;
     flex-grow: 1;
-    margin: .2rem;
+    margin: .2rem .125rem;
 }
 
 form.form .localizacao_user input:nth-child(2) {
@@ -198,6 +210,7 @@ form.form .localizacao_user input:nth-child(2) {
 
 #textArea {
     width: 100%;
+    color: var(--corMenuHeader);
 }
 
 form.form button {
@@ -237,6 +250,15 @@ form.form button {
         color: var(--corRoxaPrincipal);
         text-shadow: 0px 0px 15px var(--corRoxaPrincipal);
     }
+
+    form.form button {
+        width: 5rem;
+    }
+    #segundo_nome,
+    #primeiro_nome {
+        display: inline;
+        width: 49.65%;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -246,5 +268,9 @@ form.form button {
 
     #navegacao-Id ul {
         font-size: 20pt;
+    }
+
+    form.form {
+        width: 90%;
     }
 }
