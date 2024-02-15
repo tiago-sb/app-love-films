@@ -9,7 +9,8 @@
     --corTemp: #b9b3b3;
 }
  
-* {
+*,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -220,6 +221,22 @@ form.form button {
     border: none;
     border-radius: .3rem;
     margin-top: .5rem;
+}
+
+div.paraCima {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--corRoxaSecundaria);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: FadeIn 1s ease; 
 }
 
 @media screen and (min-width: 768px) {
