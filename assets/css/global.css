@@ -96,6 +96,67 @@ div#contact {
     background-color: var(--corTemp);
 }
 
+div#home {
+    padding-top: 0;
+}
+
+div#home .homeContent {
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/fundo_images/pexels-pixabay-274937.jpg");
+    margin-bottom: 7rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    padding: .5rem;
+}
+
+div#home .homeContent h1,
+div#home .homeContent p {
+    color: var(--corMenuHeader);
+    text-shadow: 0 0 .5rem #000;
+}
+
+div#search .mainApp {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 90vw;
+    height: 95%;
+    border-radius: 1rem;
+    background-color: var(--corTexto);
+}
+
+div.search-films {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 3rem;
+}
+
+
+div.search-films input {
+    color: var(--corMenuHeader);
+    padding: .3rem .5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--corMenuHeader);
+}
+
+div.search-films button {
+    color: var(--corMenuHeader);
+    background-color: transparent;
+    padding: .3rem;
+    font-size: 9pt;
+    border: 1px solid var(--corMenuHeader);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
 div#about {
     background-color: var(--corTemp);
 }
@@ -237,6 +298,7 @@ div.paraCima {
     justify-content: center;
     align-items: center;
     animation: FadeIn 1s ease; 
+    opacity: .9;
 }
 
 @media screen and (min-width: 768px) {
@@ -268,6 +330,10 @@ div.paraCima {
         text-shadow: 0px 0px 15px var(--corRoxaPrincipal);
     }
 
+    div.search-films input {
+        width: 95%;
+    }
+
     form.form button {
         width: 5rem;
     }
@@ -278,12 +344,34 @@ div.paraCima {
     }
 }
 
+@media screen and (min-width: 768px) {
+    div#home .homeContent {
+        align-items: flex-start;
+    } 
+    
+    div#home .homeContent h1 {
+        font-size: 50pt;
+    }
+
+    div#home .homeContent p {
+        font-size: 15pt;
+    }
+}
+
 @media screen and (min-width: 1440px) {
     .header h1 {
         font-size: 25pt;
     }
 
     #navegacao-Id ul {
+        font-size: 20pt;
+    }
+
+    div#home .homeContent h1 {
+        font-size: 70pt;
+    }
+
+    div#home .homeContent p {
         font-size: 20pt;
     }
 
