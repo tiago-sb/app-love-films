@@ -17,13 +17,19 @@ document.querySelector("div.mainApp .search-films button").addEventListener("cli
                 .then(([details, images]) => {
                         const imageUrl = `https://image.tmdb.org/t/p/w500${images.posters[0].file_path}`
                         
-                        container.innerHTML = `
+                        container.innerHTML =`
                                 <h2>${details.title}</h2>
-                                <img src="${imageUrl}" alt="Poster de ${details.title}">
-                                <p class="lancFilm">Data de Lançamento: ${details.release_date}</p>
-                                <p class="sinoFilm">Sinopse: "${details.overview}"</p>
-                                <p class="lancFilm">Nota: ${details.vote_average}</p>
-                                <p class="lancFilm">Popularidade: ${details.popularity}</p>
+                                <div class="informations-film"> 
+                                        <img src="${imageUrl}" alt="Poster de ${details.title}">
+                                        <div> 
+                                                <p class="lancFilm">Data de Lançamento: ${details.release_date}</p>
+                                                <p class="sinoFilm">Sinopse: "${details.overview}"</p>
+                                                <p class="lancFilm">Nota: ${details.vote_average}</p>
+                                                <p class="lancFilm">Popularidade: ${details.popularity}</p>
+                                        </div>        
+                                </div>        
+                        
+                                
                         `
                 })                       
 })
