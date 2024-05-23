@@ -1,4 +1,4 @@
-const chave;
+const chave = f728320fd6129584a46499cc8c184523;
 const url = "https://api.themoviedb.org/3/search/movie?"
 
 document.querySelector("div.mainApp .search-films button").addEventListener("click", async () => {
