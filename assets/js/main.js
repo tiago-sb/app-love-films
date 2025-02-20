@@ -3,7 +3,7 @@ const parametros_busca = new URLSearchParams(window.location.search)
 const termo_pesquisa = parametros_busca.get("q")
 const botao_busca = document.querySelector("#pesquisa > img")
 
-const hamburguer = document.querySelector(".header .menu-hamburguer")
+const hamburguer = document.querySelector("header.header div.menu-hamburguer")
 const botaoSubir = document.querySelector(".paraCima")
 
 const logo = document.querySelector("body > header > div.homeBusca > a")
@@ -13,9 +13,9 @@ const contato = document.querySelector("#navegacao-Id > ul > li:nth-child(2)")
 const filmes = document.querySelectorAll("body main.busca_filme div.filme-card")
 
 hamburguer.addEventListener("click", () => {
-  const botao = document.querySelector(".header .navegacao")
+  const botao = document.querySelector("header.header nav#navegacao-Id")
   const clicado = botao.classList.contains("navegacao-escolhida")
-
+  
   if (clicado) {
     botao.classList.remove("navegacao-escolhida")
   } else {

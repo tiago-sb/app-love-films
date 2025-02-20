@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const chave = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2E4ZjE3NzEyMjZkZDMwYTg0ZjkzZjlmMzA3YmZhYiIsIm5iZiI6MTcwODM3MzU3Mi44MzUsInN1YiI6IjY1ZDNiNjQ0N2Q1ZGI1MDE2MzM1Y2U3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V-KRmAXizFJ-TqDgYxxe9TqqykIOx1tTFrUubbD7oiY'
-  const url = 'https://api.themoviedb.org/3/movie'
-  
   const card = document.getElementById('card')
   let filme = localStorage.getItem('detalhesFilme')
 
@@ -15,14 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (filme) {
     const [response_elenco, response_recomendacoes] = await Promise.all([
-      fetch(`${url}/${filme.id || filme}/credits?language=pt-BR&page=1`, {
-        method: 'GET',
-        headers: { accept: 'application/json', Authorization: chave }
-      }),
-      fetch(`${url}/${filme.id || filme}/recommendations?language=pt-BR&page=1`, {
-        method: 'GET',
-        headers: { accept: 'application/json', Authorization: chave } 
-      })
+      fetch(`http://localhost:3001/movies/${filme.id || filme}/credits`, {method: 'GET'}),
+      fetch(`http://localhost:3001/movies/${filme.id || filme}/recommendations`, {method: 'GET'}) 
     ])
 
     const elenco = await response_elenco.json()
@@ -43,7 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     recomendacoes.results.forEach(filme_recomendado => {
       conteudo_recomendacoes += `
         <div class="filme-card" data-id="${filme_recomendado.id}">
-          <img src="https://image.tmdb.org/t/p/w500${filme_recomendado.backdrop_path}" alt="${filme_recomendado.original_title}" />
+          <img src="https://image.tmdb.org/t/p/w500${filme_recomendado.backdrop_path}" 
+            alt="${filme_recomendado.original_title}" />
           <p><b>${filme_recomendado.original_title}</b></p>
         </div>
       `
@@ -51,7 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     card.innerHTML = `
       <div class="card-content">
-        <div class="card-contenteudo-informacao" style="background-image: url('https://image.tmdb.org/t/p/w500${filme.backdrop_path}'); 
+        <div class="card-contenteudo-informacao" 
+          style="background-image: url('https://image.tmdb.org/t/p/w500${filme.backdrop_path}'); 
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -59,7 +52,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           height: 100%;">
           <h1>${filme.title}</h1>
           <div class="card-conteudo-dados">
-            <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" alt="${filme.original_title}" />
+            <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" 
+              alt="${filme.original_title}" />
             <div class="card-contenteudo-informacao-filme">
               <div class="media-votos">
                 <p><b>Média de Votos</b></p>
@@ -112,13 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     
     async function detalhamentoFilme(filme_id) {
-      const result = await fetch(`${url}/${filme_id}?language=pt-BR`, {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: chave
-        }
-      })
+      const result = await fetch(`http://localhost:3001/movie/${filme_id}`, {method: 'GET'})
       const dados_filme = await result.json()
       
       return dados_filme

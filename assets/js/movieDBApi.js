@@ -1,14 +1,11 @@
-const chave = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2E4ZjE3NzEyMjZkZDMwYTg0ZjkzZjlmMzA3YmZhYiIsIm5iZiI6MTcwODM3MzU3Mi44MzUsInN1YiI6IjY1ZDNiNjQ0N2Q1ZGI1MDE2MzM1Y2U3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V-KRmAXizFJ-TqDgYxxe9TqqykIOx1tTFrUubbD7oiY'
-const url = 'https://api.themoviedb.org/3/movie'
-
 const card = document.getElementById('card')
 
 document.addEventListener("DOMContentLoaded", async () => {
   const [filmes_populares, filmes_por_vir, filmes_mais_votados, filmes_em_cartaz] = await Promise.all([
-    fetchFilmes('popular', chave, url), 
-    fetchFilmes('upcoming', chave, url), 
-    fetchFilmes('top_rated', chave, url), 
-    fetchFilmes('now_playing', chave, url)
+    fetchFilmes('popular'), 
+    fetchFilmes('upcoming'), 
+    fetchFilmes('top_rated'), 
+    fetchFilmes('now_playing')
   ])
 
   carregarInformacaoIndex(filmes_populares.results, 
@@ -27,16 +24,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   })
 })
 
-async function fetchFilmes(endpoint, chave, url) {
-  const response = await fetch(`${url}/${endpoint}?language=pt-BR&page=1`, {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: chave
-    }
-  })
-  
-  return response.json()
+async function fetchFilmes(endpoint) {
+  const resposta_servidor = await fetch(`http://localhost:3001/movies/${endpoint}`, { method: 'GET' })
+
+  if (resposta_servidor.ok) {
+    return resposta_servidor.json();
+  } else {
+    console.error('Erro ao buscar filmes:', resposta_servidor.statusText);
+  }
 }
 
 function carregarInformacaoIndex(popular, por_vir, mais_votados, em_cartaz) {
@@ -86,18 +81,13 @@ async function carregarInformacoesFilme(filme_id, filmes){
     
     if (filme) {
       const [response_elenco, response_recomendacoes] = await Promise.all([
-        fetch(`${url}/${filme.id}/credits?language=pt-BR&page=1`, {
-          method: 'GET',
-          headers: { accept: 'application/json', Authorization: chave }
-        }),
-        fetch(`${url}/${filme.id}/recommendations?language=pt-BR&page=1`, {
-          method: 'GET',
-          headers: { accept: 'application/json', Authorization: chave } 
-        })
+        fetch(`http://localhost:3001/movies/${filme.id || filme}/credits`, {method: 'GET'}),
+        fetch(`http://localhost:3001/movies/${filme.id || filme}/recommendations`, {method: 'GET'})
       ])
   
       const elenco = await response_elenco.json()
       let conteudo_elenco = ""
+
       const recomendacoes = await response_recomendacoes.json()
       let conteudo_recomendacoes = ""
 
@@ -181,13 +171,7 @@ async function carregarInformacoesFilme(filme_id, filmes){
       `
       
       async function detalhamento(filme_id) {
-        const result = await fetch(`${url}/${filme_id}?language=pt-BR`, {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-            Authorization: chave
-          }
-        })
+        const result = await fetch(`http://localhost:3001/movie/${filme_id}`, {method: 'GET'})
         const dados_filme = await result.json()
         
         return dados_filme
@@ -211,13 +195,7 @@ async function carregarInformacoesFilme(filme_id, filmes){
 }
 
 async function detalhamentoFilme(filme_id) {
-  const result = await fetch(`${url}/${filme_id}?language=pt-BR`, {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: chave
-    }
-  })
+  const result = await fetch(`http://localhost:3001/movie/${filme_id}`, {method: 'GET'})
   const dados_filme = await result.json()
   
   return dados_filme
@@ -255,13 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function exibirResultadoBusca(termo) {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${termo}&include_adult=false&language=pt-BR&page=1`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: chave
-      }
-    })
+    const response = await fetch(`http://localhost:3001/search?q=${termo}`, {method: 'GET'})
 
     const filmes = await response.json()
     localStorage.setItem("filmesBusca", JSON.stringify(filmes.results))
