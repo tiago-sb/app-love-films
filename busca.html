@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="shortcut icon" href="assets/css/images/icons/logo.ico" type="image/x-icon">
   <title>Love Films: Seu aplicativo de filmes</title>
 </head>
 
-<body data-page="index">
-  <header class="header">
+<body data-page="busca">
+  <header class="header busca">
     <div class="homeBusca">
       <a href="#home">
         <h1>Love Films</h1>
@@ -22,33 +21,22 @@
         <img src="assets/css/images/icons/search.svg" alt="pesquisa">
       </div>
     </div>
+
     <div class="menu-hamburguer">
       <div id="line1" class="line"></div>
       <div id="line2" class="line"></div>
       <div id="line3" class="line"></div>
     </div>
+
     <nav class="navegacao" id="navegacao-Id">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="contato.html">Contato</a></li>
       </ul>
     </nav>
   </header>
-  <main class="main">
-    <div id="home-filter">
-      <span class="home-filter-text">
-        <p>Busque aqui informações sobre seu filme favorito</p>
-      </span>
-    </div>
-    <div id="home">
-      <div class="homeContent">
-      </div>
-    </div>
+  <main class="busca_filme">
   </main>
-  <footer>
-    <div id="about">
-    </div>
-  </footer>
   <div class="paraCima">
     <img src="assets/css/images/icons/paraCima.svg" alt="Voltar">
   </div>
@@ -57,4 +45,5 @@
   <script src="assets/js/movieDBApi.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
