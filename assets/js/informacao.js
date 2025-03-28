@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (filme) {
     const [response_elenco, response_recomendacoes] = await Promise.all([
-      fetch(`https://app-love-films.vercel.app/api/server.js/movies/${filme.id || filme}/credits`, {method: 'GET'}),
-      fetch(`https://app-love-films.vercel.app/api/server.js/movies/${filme.id || filme}/recommendations`, {method: 'GET'}) 
+      fetch(`https://app-love-films.vercel.app/api/credits.js/movies/${filme.id || filme}/credits`, {method: 'GET'}),
+      fetch(`https://app-love-films.vercel.app/api/recommendations.js/movies/${filme.id || filme}/recommendations`, {method: 'GET'}) 
     ])
 
     const elenco = await response_elenco.json()
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     
     async function detalhamentoFilme(filme_id) {
-      const result = await fetch(`https://app-love-films.vercel.app/api/server.js/movie/${filme_id}`, {method: 'GET'})
+      const result = await fetch(`https://app-love-films.vercel.app/api/movie.js/movie/${filme_id}`, {method: 'GET'})
       const dados_filme = await result.json()
       
       return dados_filme
