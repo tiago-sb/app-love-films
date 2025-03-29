@@ -16,8 +16,24 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/category/(.*)",
+      "dest": "/api/category.js?category=$1"
+    },
+    {
+      "src": "/api/credits/(.*)",
+      "dest": "/api/credits.js?id=$1"
+    },
+    {
+      "src": "/api/movie/(.*)",
+      "dest": "/api/movie.js?id=$1"
+    },
+    {
+      "src": "/api/recommendations/(.*)",
+      "dest": "/api/recommendations.js?id=$1"
+    },
+    {
+      "src": "/api/search",
+      "dest": "/api/search.js?q=$1"
     },
     {
       "src": "/assets/(.*)",
