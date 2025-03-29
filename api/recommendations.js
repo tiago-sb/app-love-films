@@ -15,6 +15,8 @@ module.exports = async (req, res) => {
     res.json(response.data)
   } catch (error) {
     console.error(error)
-    res.status(500).json({ error: `Erro ao buscar recomendações do filme com id ${id}` })
+    res.status(500).json({ 
+      error: `Erro ao buscar recomendações do filme com id ${id} - ${tmdbUrl}/${id}/recommendations`
+    })
   }
-}
+} 
